@@ -57,8 +57,8 @@ st.set_page_config(layout="wide", page_title="YouTube Insights")
 
 st.title("YouTube Insights Tool (vidIQ-style)")
 
-# If you're storing the key directly in secrets:
-api_key = st.secrets["AIzaSyCID6TRLIk4krNLu5BpUkDXpTfhbQaZScs"]  # Replace with your actual secret key name
+# Using your public API key directly:
+api_key = "AIzaSyCID6TRLIk4krNLu5BpUkDXpTfhbQaZScs"
 
 # Tabs for different sections
 tab1, tab2, tab3 = st.tabs(["Channel Overview", "Video Analysis", "Keyword Research"])
@@ -79,29 +79,4 @@ with tab1:
 
 # ---- VIDEO ANALYSIS ----
 with tab2:
-    st.subheader("Video Analysis")
-    video_id = st.text_input("Enter a Video ID:", value="dQw4w9WgXcQ")  # example
-    if st.button("Get Video Stats"):
-        stats = get_video_stats(api_key, video_id)
-        if stats:
-            st.write(f"**Title**: {stats['title']}")
-            st.write(f"**Views**: {stats['views']}")
-            st.write(f"**Likes**: {stats['likes']}")
-            st.write(f"**Comments**: {stats['comments']}")
-        else:
-            st.error("Video not found or invalid Video ID")
-
-# ---- KEYWORD RESEARCH ----
-with tab3:
-    st.subheader("Keyword / Search Analysis")
-    query = st.text_input("Enter a search term:", value="AI tutorial")
-    if st.button("Search"):
-        results = search_videos(api_key, query)
-        for item in results:
-            video_id = item["id"]["videoId"]
-            title = item["snippet"]["title"]
-            channel_title = item["snippet"]["channelTitle"]
-            st.write(f"**Video Title**: {title}")
-            st.write(f"Channel: {channel_title}")
-            st.write(f"Video ID: {video_id}")
-            st.markdown("---")
+    st.subheader("Video
